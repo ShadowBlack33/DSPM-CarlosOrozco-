@@ -1,32 +1,39 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# Challenge 04 — Login + Storage
 
-Currently, two official plugins are available:
+![Ionic](https://img.shields.io/badge/Ionic-9-3880FF?logo=ionic&logoColor=white)
+![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![localStorage](https://img.shields.io/badge/Persistencia-localStorage-0f766e)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+</div>
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Demo de login en Ionic con sesión persistida en el navegador. Al iniciar sesión correctamente, la app guarda un token en `localStorage` y redirige a la lista; si el token ya existe al reabrir la app, salta el login automáticamente.
 
-## Expanding the Oxlint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+- Formulario de login con validación de credenciales.
+- Mensaje de error visible cuando las credenciales no coinciden.
+- Sesión persistente: no es necesario volver a iniciar sesión si ya hay un token guardado.
+- Botón de Logout que limpia la sesión y redirige de vuelta al login.
+- Rutas protegidas con React Router v6 (`/login`, `/list`).
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Cómo correrla
+
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Estructura
+
+```text
+src/
+├── App.tsx           → Rutas y redirección según sesión
+└── pages/
+    ├── Login.tsx      → Formulario de login
+    └── ListPage.tsx   → Vista protegida + logout
+```
