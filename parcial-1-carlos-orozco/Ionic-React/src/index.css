@@ -1,0 +1,51 @@
+/* Paleta MediClinic sobre las variables de theming de Ionic */
+:root {
+  --ion-color-primary: #0f766e;
+  --ion-color-primary-rgb: 15, 118, 110;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #0d685f;
+  --ion-color-primary-tint: #27847b;
+
+  --ion-color-success: #16a34a;
+  --ion-color-warning: #d97706;
+  --ion-color-medium: #64748b;
+
+  --ion-background-color: #f4f6f8;
+  --ion-toolbar-background: #ffffff;
+}
+
+.login-content {
+  --background: linear-gradient(160deg, var(--ion-color-primary) 0%, #0b5b54 100%);
+}
+
+.login-wrap {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.login-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  padding: 2rem 1.5rem 1.25rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.login-card h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #0b5b54;
+  margin: 0 0 0.25rem;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin: 0 0 1.25rem;
+}
