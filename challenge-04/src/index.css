@@ -1,0 +1,85 @@
+/* ---- Login ---- */
+.auth-bg {
+  --background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+}
+
+.auth-wrapper {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 36px 28px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.auth-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-icon ion-icon {
+  font-size: 28px;
+  color: white;
+}
+
+.auth-title {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.auth-subtitle {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.auth-input {
+  --background: #f3f4f6;
+  --border-radius: 12px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+}
+
+.auth-error {
+  font-size: 13px;
+  margin: 4px 0 12px;
+}
+
+.auth-button {
+  --border-radius: 12px;
+  --background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* ---- List ---- */
+.list-bg {
+  --background: #f4f5f7;
+}
+
+.list-card {
+  margin-top: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.logout-wrapper {
+  padding: 24px;
+}
