@@ -32,7 +32,7 @@ El modo `dev` no siempre activa el Service Worker correctamente — usa `build` 
 
 ## Demo
 
-Link: _(pendiente de desplegar en Netlify)_
+Link: https://stellular-marzipan-a52f0d.netlify.app
 
 ## Cómo instalar en el celular
 
