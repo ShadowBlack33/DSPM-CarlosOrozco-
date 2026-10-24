@@ -1,0 +1,8 @@
+{
+  "name": "Misiones · Parcial 2",
+  "short_name": "Misiones",
+  "start_url": "/misiones",
+  "display": "standalone",
+  "background_color": "#f3efe6",
+  "theme_color": "#14110f"
+}

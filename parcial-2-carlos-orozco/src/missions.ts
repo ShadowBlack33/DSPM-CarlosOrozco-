@@ -1,7 +1,7 @@
 import type { MissionDef, MissionState, Progress } from './types';
 
 // Reglas de cada misión (fáciles de ajustar)
-export const DISTANCE_GOAL_M = 30;   // Misión 2: "distancia > 30m"
+export const DISTANCE_GOAL_M = 50;   // Misión 2: "moverse 50 metros" (también cumple "distancia > 30m")
 export const MAX_GPS_ACCURACY_M = 35; // lecturas con más error que esto no cuentan
 export const STILL_SECONDS = 10;     // Misión 3
 

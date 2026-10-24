@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Capacitor } from '@capacitor/core';
 import { IonButton, IonContent, IonIcon, IonPage, IonSpinner } from '@ionic/react';
 import { camera, locate, logOutOutline, refresh, stopCircleOutline, walk } from 'ionicons/icons';
 import { useAuth } from '../context/AuthContext';
@@ -102,6 +103,9 @@ const MoveMission = () => {
 };
 
 /* ---------- Misión 3: Permanencia activa (acelerómetro + vibración) ---------- */
+// Safari en iPhone no tiene API de vibración; la app nativa (Capacitor Haptics) sí vibra
+const canVibrate = Capacitor.isNativePlatform() || 'vibrate' in navigator;
+
 const StillMission = () => {
   const { isCompleted, isUnlocked, stillness } = useGame();
   const done = isCompleted(3);
@@ -134,7 +138,12 @@ const StillMission = () => {
           <IonIcon slot="start" icon={walk} />Empezar a quedarme quieto
         </IonButton>
       )}
-      {done && <p className="hint ok">Aguantaste {STILL_SECONDS} segundos quieto. El celular vibró.</p>}
+      {done && (
+        <p className="hint ok">
+          Aguantaste {STILL_SECONDS} segundos quieto.{' '}
+          {canVibrate ? 'El celular vibró.' : 'Este navegador no permite vibrar (Safari en iPhone); en la app nativa sí vibra.'}
+        </p>
+      )}
       {error && <div className="form-error">{error}</div>}
     </MissionCard>
   );

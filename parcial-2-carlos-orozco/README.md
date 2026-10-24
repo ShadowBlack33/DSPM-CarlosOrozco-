@@ -19,10 +19,10 @@ App en Ionic + React donde usuarios reales (Firebase Auth) desbloquean y complet
 | # | Misión | Lógica real | Puntos |
 |---|---|---|---|
 | 01 | **Evidencia** | Abre la cámara (`@capacitor/camera`). Se completa al **guardar** la imagen. | 50 |
-| 02 | **Movimiento real** | Guarda la posición original y escucha el GPS con `watchPosition`. Se completa cuando la distancia (Haversine) es **> 30 m** con una lectura de precisión ≤ 35 m. | 70 |
+| 02 | **Movimiento real** | Guarda la posición original y escucha el GPS con `watchPosition`. Se completa cuando la distancia (Haversine) llega a **50 m** (cumple "moverse 50 metros" y "distancia > 30m") con una lectura de precisión ≤ 35 m. | 70 |
 | 03 | **Permanencia activa** | Bloqueada hasta completar la 02. Escucha el acelerómetro (`@capacitor/motion`); si te mueves, el conteo se reinicia. A los **10 s quieto vibra** (`@capacitor/haptics`). No bloquea la pantalla y pide *Wake Lock* para que no se apague. | 80 |
 
-Los umbrales (30 m, 35 m de precisión, 10 s) están en `src/missions.ts`.
+Los umbrales (50 m, 35 m de precisión, 10 s) están en `src/missions.ts`.
 
 ## Requisitos del parcial
 
@@ -120,7 +120,7 @@ src/
 
 | Misión 1 · Evidencia | Misión 2 · Movimiento | Misión 3 · Permanencia |
 |---|---|---|
-| ![Foto](screenshots/04-mision-foto.png) | ![Movimiento](screenshots/05-mision-movimiento.png) | ![Quieto](screenshots/06-mision-quieto.png) |
+| ![Foto](screenshots/04-mision-foto.png) | ![Movimiento](screenshots/05-mision-movimiento.png) | ![Quieto](screenshots/06-mision-quieto.png) ![Quieto 2](screenshots/06.1-mision-quieto.png) |
 
 | Misiones completas | Notificación | Ranking |
 |---|---|---|
@@ -129,3 +129,16 @@ src/
 | Resultados | Firestore |
 |---|---|
 | ![Resultados](screenshots/10-resultados.png) | ![Firestore](screenshots/11-firestore.png) |
+
+### Prueba en iPhone (Safari, por túnel de Cloudflare)
+
+| Cámara | Permiso de ubicación | Acelerómetro detecta movimiento |
+|---|---|---|
+| ![Cámara](screenshots/12-iphone-camara.png) | ![Ubicación](screenshots/13-iphone-permiso-ubicacion.png) | ![Te moviste](screenshots/14-iphone-te-moviste.png) |
+
+| Misiones completas | Notificaciones del sistema |
+|---|---|
+| ![Completas](screenshots/15-iphone-misiones-completas.png) | ![Notificaciones](screenshots/16-iphone-notificaciones.png) |
+
+> **Nota sobre la vibración en iPhone:** Safari no implementa la API de vibración (restricción de Apple), así que desde el navegador del iPhone la Misión 3 se completa sin vibrar. En la app nativa (`@capacitor/haptics`) y en Chrome de Android sí vibra. Las notificaciones web en iPhone funcionan con la app agregada a la pantalla de inicio (`manifest.json` + service worker `public/sw.js`).
+

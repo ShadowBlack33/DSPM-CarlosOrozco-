@@ -52,7 +52,11 @@ const useStillness = (onDone: () => void) => {
     try {
       // iOS exige pedir permiso al sensor desde un toque del usuario
       const DME = (window as unknown as { DeviceMotionEvent?: { requestPermission?: () => Promise<string> } }).DeviceMotionEvent;
-      if (DME?.requestPermission && Capacitor.getPlatform() === 'ios' && (await DME.requestPermission()) !== 'granted') {
+      // (Safari en iPhone y la app iOS). Otros navegadores no lo necesitan.
+      const isIOS = Capacitor.getPlatform() === 'ios'
+        || /iPhone|iPad|iPod/.test(navigator.userAgent)
+        || (navigator.userAgent.includes('Mac') && navigator.maxTouchPoints > 1);
+      if (isIOS && DME?.requestPermission && (await DME.requestPermission()) !== 'granted') {
         throw new Error('permiso');
       }
 
@@ -95,7 +99,7 @@ const useStillness = (onDone: () => void) => {
       }, 100);
     } catch (e) {
       console.error(e);
-      setError('No se pudo acceder al acelerómetro.');
+      setError('No se pudo acceder al acelerómetro. En iPhone toca «Permitir» cuando Safari pregunte por movimiento y orientación.');
       setStatus('error');
       void cleanup();
     }
