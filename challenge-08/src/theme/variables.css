@@ -1,0 +1,36 @@
+/* ───────── Challenge 08 · "Tareas con foto" ─────────
+   La foto es la protagonista: tarjetas que crecen cuando hay imagen,
+   violeta como color de acción y un punto verde que late = datos en vivo (Realtime). */
+:root {
+  --bg: #f5f4fa;
+  --card: #ffffff;
+  --ink: #17142b;
+  --muted: #6c6888;
+  --rule: #e4e1f0;
+  --violet: #4b2fe0;
+  --violet-deep: #3a21bd;
+  --violet-soft: #ece8ff;
+  --live: #12b76a;
+
+  --font: 'Manrope', system-ui, sans-serif;
+
+  --ion-font-family: var(--font);
+  --ion-background-color: var(--bg);
+  --ion-text-color: var(--ink);
+  --ion-toolbar-background: var(--bg);
+  --ion-item-background: transparent;
+  --ion-border-color: var(--rule);
+
+  --ion-color-primary: #4b2fe0;
+  --ion-color-primary-rgb: 75, 47, 224;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #4229c5;
+  --ion-color-primary-tint: #5d44e3;
+
+  --ion-color-danger: #d63a4a;
+  --ion-color-danger-rgb: 214, 58, 74;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-shade: #bc3341;
+  --ion-color-danger-tint: #da4e5c;
+}
