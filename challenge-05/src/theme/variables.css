@@ -1,0 +1,43 @@
+/* ───────── Challenge 05 · "Tinta cobalto" ─────────
+   Un cuaderno de tareas: papel frío, tinta azul, una sola marca de color fuerte. */
+:root {
+  --ink: #2335c9;          /* cobalto: acción y marca */
+  --ink-deep: #17208a;
+  --ink-soft: #e8eafc;
+  --paper: #f5f6fa;        /* fondo */
+  --sheet: #ffffff;        /* superficies */
+  --rule: #e2e5ef;         /* líneas */
+  --text: #151a2d;
+  --muted: #646b84;
+  --done: #178a5e;
+  --pending: #c97a12;
+
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+
+  --ion-font-family: var(--font-body);
+  --ion-background-color: var(--paper);
+  --ion-text-color: var(--text);
+  --ion-item-background: transparent;
+  --ion-toolbar-background: var(--paper);
+  --ion-border-color: var(--rule);
+
+  --ion-color-primary: #2335c9;
+  --ion-color-primary-rgb: 35, 53, 201;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #1f2fb1;
+  --ion-color-primary-tint: #3949ce;
+
+  --ion-color-success: #178a5e;
+  --ion-color-success-rgb: 23, 138, 94;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-shade: #147953;
+  --ion-color-success-tint: #2e966e;
+
+  --ion-color-danger: #c8323c;
+  --ion-color-danger-rgb: 200, 50, 60;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-shade: #b02c35;
+  --ion-color-danger-tint: #ce4750;
+}
