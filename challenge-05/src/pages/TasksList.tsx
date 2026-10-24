@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonList, IonPage, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonFab, IonFabButton, IonHeader, IonIcon, IonList, IonPage, IonToolbar, useIonRouter } from '@ionic/react';
 import { add, logOutOutline } from 'ionicons/icons';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -21,6 +21,7 @@ const TasksList = () => {
   const { user, logout } = useAuth();
   const { tasks } = useTasks();
   const navigate = useNavigate();
+  const router = useIonRouter();
 
   const pending = tasks.filter((t) => !t.completed);
   const done = tasks.filter((t) => t.completed);
@@ -29,7 +30,7 @@ const TasksList = () => {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/login', { replace: true });
+    router.push('/login', 'root', 'replace');
   };
 
   return (
@@ -70,7 +71,7 @@ const TasksList = () => {
 
         {pending.length > 0 && (
           <>
-            <h2 className="group-title">Pendientes · {pending.length}</h2>
+            <h2 className="group-title">Pendientes ({pending.length})</h2>
             <IonList className="task-list" lines="full">
               {pending.map((t) => <TaskItem key={t.id} task={t} />)}
             </IonList>
@@ -79,7 +80,7 @@ const TasksList = () => {
 
         {done.length > 0 && (
           <>
-            <h2 className="group-title">Completadas · {done.length}</h2>
+            <h2 className="group-title">Completadas ({done.length})</h2>
             <IonList className="task-list" lines="full">
               {done.map((t) => <TaskItem key={t.id} task={t} />)}
             </IonList>

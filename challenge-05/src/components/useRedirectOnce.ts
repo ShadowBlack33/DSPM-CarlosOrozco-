@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useIonRouter } from '@ionic/react';
 
 /**
  * Redirige UNA sola vez cuando `condition` se cumple.
@@ -9,9 +9,14 @@ import { useNavigate } from 'react-router-dom';
  * vieja (p. ej. Login) "secuestraba" la navegación y cerraba /tasks/new.
  * Con este hook la redirección se dispara una vez y se rearma solo cuando
  * la condición vuelve a ser falsa (p. ej. después de un logout).
+ *
+ * Se navega con dirección 'root': Ionic limpia el stack de páginas, que es lo
+ * correcto al entrar o salir de la sesión.
  */
 const useRedirectOnce = (condition: boolean, to: string) => {
-  const navigate = useNavigate();
+  const router = useIonRouter();
+  const routerRef = useRef(router);
+  routerRef.current = router;
   const done = useRef(false);
 
   useEffect(() => {
@@ -21,9 +26,9 @@ const useRedirectOnce = (condition: boolean, to: string) => {
     }
     if (!done.current) {
       done.current = true;
-      navigate(to, { replace: true });
+      routerRef.current.push(to, 'root', 'replace');
     }
-  }, [condition, to, navigate]);
+  }, [condition, to]);
 };
 
 export default useRedirectOnce;

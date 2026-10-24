@@ -56,6 +56,20 @@ VITE_FIREBASE_APP_ID=...
 
 > El archivo `.env` está en `.gitignore`, así que las llaves no se suben a GitHub.
 
+## Diseño
+
+**"Tinta cobalto"**: un cuaderno de tareas con papel frío y tinta azul.
+
+- Tipografías: *Bricolage Grotesque* para títulos e *Instrument Sans* para el texto.
+- Login y registro con un bloque de color con renglones de cuaderno y el formulario en una hoja que sube desde abajo.
+- La lista muestra una barra de progreso (completadas / total) y separa pendientes y completadas.
+- El detalle tiene la acción principal (completar) fija abajo, al alcance del pulgar.
+- Tema en `src/theme/variables.css` y estilos en `src/theme/app.css`.
+
+## Nota técnica: redirecciones en Ionic
+
+Ionic deja montadas las páginas anteriores del stack. Un `<Navigate>` dentro de una página que sigue montada (por ejemplo Login) se vuelve a ejecutar en cada cambio de ruta y "secuestra" la navegación: por eso `/tasks/new` se abría y se cerraba de inmediato. `components/useRedirectOnce.ts` redirige una sola vez y usa `useIonRouter().push(ruta, 'root', 'replace')` para limpiar el stack al entrar o salir de la sesión.
+
 ## Cómo correrla
 
 ```bash
