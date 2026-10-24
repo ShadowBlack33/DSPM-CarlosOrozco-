@@ -1,0 +1,37 @@
+{
+  "name": "parcial-2-carlos-orozco",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/camera": "^8.2.6",
+    "@capacitor/core": "^8.5.3",
+    "@capacitor/geolocation": "^8.2.4",
+    "@capacitor/haptics": "^8.0.2",
+    "@capacitor/local-notifications": "^8.3.1",
+    "@capacitor/motion": "^8.0.1",
+    "@ionic/pwa-elements": "^3.4.0",
+    "@ionic/react": "^9.0.9",
+    "@ionic/react-router": "^9.0.9",
+    "firebase": "^13.1.0",
+    "ionicons": "^8.1.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^6.30.6"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
